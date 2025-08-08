@@ -1,74 +1,42 @@
-/* Estilos gerais */
-body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 20px;
-    background-color: #f0f0f0;
+/* Estilo do tabuleiro */
+.tabuleiro {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 640px;
+  margin: 20px auto;
 }
 
-h1 {
-    margin-bottom: 20px;
+/* Estilo de cada carta */
+.carta {
+  width: 100px;
+  height: 150px;
+  margin: 10px;
+  border: 2px solid #333;
+  border-radius: 8px;
+  background-color: #444; /* verso da carta */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: #fff;
+  transition: transform 0.3s;
+  position: relative;
 }
 
-/* Estilos do tabuleiro */
-.game-board {
-    display: grid;
-    grid-template-columns: repeat(4, 100px);
-    grid-gap: 10px;
+/* Quando a carta estiver virada */
+.carta.flip {
+  background-color: #fff;
 }
 
-/* Estilos das cartas */
-.card {
-    width: 100px;
-    height: 150px;
-    perspective: 1000px;
-    cursor: pointer;
-    position: relative;
+/* Esconder a imagem ao virar */
+.carta img {
+  display: none;
+  width: 80px;
+  height: 120px;
 }
 
-.card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform 0.8s;
-    transform-style: preserve-3d;
-}
-
-.card.flipped .card-inner {
-    transform: rotateY(180deg);
-}
-
-/* Frente e verso da carta */
-.card-front, .card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    border-radius: 8px;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.card-front {
-    background-color: #ffffff;
-    border: 2px solid #ccc;
-}
-
-.card-back {
-    background-color: #333;
-    color: white;
-    transform: rotateY(180deg);
-    font-size: 24px;
-}
-
-/* Placeholder para imagens */
-.card-front img {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
+/* Mostrar a imagem ao virar */
+.carta.flip img {
+  display: block;
 }
